@@ -1,56 +1,30 @@
-package com.example.booksale.entity;
+package com.example.booksale.vo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-@Table(name = "book")
-public class Book {
+public class BookReq {
 
-	@Id
-	@Column(name = "isbn")
 	private String isbn;
 
-	@Column(name = "name")
 	private String name;
 
-	@Column(name = "author")
 	private String author;
 
-	@Column(name = "price")
 	private int price;
 
-	@Column(name = "inventory")
 	private int inventory;
 
-	@Column(name = "sales")
 	private int sales;
 
-	@Column(name = "genre")
 	private String genre;
 
-	public Book() {
+	@JsonProperty("bookSale")
+	private Integer bookSale;
+	@JsonProperty("quantity")
+	private Integer quantity;
 
-	}
+	public BookReq() {
 
-	public Book(String isbn, String name, String author, int price, int inventory, int sales, String genre) {
-		this.name = name;
-		this.isbn = isbn;
-		this.author = author;
-		this.price = price;
-		this.inventory = inventory;
-		this.sales = sales;
-		this.genre = genre;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getIsbn() {
@@ -59,6 +33,14 @@ public class Book {
 
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getAuthor() {
@@ -99,6 +81,22 @@ public class Book {
 
 	public void setGenre(String genre) {
 		this.genre = genre;
+	}
+
+	public Integer getBooksale() {
+		return bookSale;
+	}
+
+	public void setBooksale(Integer booksale) {
+		this.bookSale = booksale;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 
 }
